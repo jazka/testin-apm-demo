@@ -37,6 +37,7 @@
         android:id="@+id/log_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
         android:text="@string/log_hint" />
 
 </LinearLayout>

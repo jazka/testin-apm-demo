@@ -8,6 +8,7 @@ package com.testin.apm.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -21,12 +22,14 @@ import android.widget.TextView;
  * Http test Activity
  */
 public class HttpTestActivity extends Activity {
+    private static final String SEPERATOR_LINE = "---------";
     public Button mPostBtn;
     public Button mGetBtn;
     public Spinner mSpinner;
     public TextView mLogTextView;
     public String mUrl;
     public HttpTest mHttpTest;
+    public boolean mFstLogData;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class HttpTestActivity extends Activity {
      * Initialization
      */
     public void init() {
+        mFstLogData = true;
         mUrl = Config.getDefaultUrl();
 
         String testType = getIntent().getStringExtra(Config.TEST_TYPE_KEY);
@@ -63,6 +67,28 @@ public class HttpTestActivity extends Activity {
         mSpinner.setOnItemSelectedListener(new SpinnerOnSelectedListener());
 
         mLogTextView = (TextView) findViewById(R.id.log_tv);
+        mLogTextView.setMovementMethod(ScrollingMovementMethod.getInstance());
+    }
+
+    /**
+    * Set the TextView context with log data
+    */
+    public void setLogData(String logData) {
+        if (mFstLogData) {
+            mLogTextView.setText(logData);
+            mFstLogData = false;
+        } else {
+            mLogTextView.append(logData);
+        }
+
+        logSeparatorLine();
+    }
+
+    /**
+    * Log separator line to make more readable
+    */
+    public void logSeparatorLine() {
+        mLogTextView.append("\r\n" + SEPERATOR_LINE + "\r\n");
     }
 
     class ButtonListener implements OnClickListener {
@@ -86,10 +112,10 @@ public class HttpTestActivity extends Activity {
                     }
 
                     if (showLog) {
-                        mLogTextView.setText(mHttpTest.getStatisticData());
+                        setLogData(mHttpTest.getStatisticData());
                     }
                 } catch (Exception e) {
-                    mLogTextView.setText(e.toString());
+                    setLogData(e.toString());
                 }
             }
         }
