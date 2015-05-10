@@ -27,6 +27,10 @@
             android:name=".HttpTestActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
+        <activity 
+            android:name=".SqliteTestActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
     </application>
  
 </manifest>

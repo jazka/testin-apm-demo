@@ -19,6 +19,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
     public Button mHttpClientTestBtn;
     public Button mHttpUrlConnectionTestBtn;
+    public Button mSqliteTestBtn;
 
     /** Called when the activity is first created. */
     @Override
@@ -36,6 +37,9 @@ public class MainActivity extends Activity {
 
         mHttpUrlConnectionTestBtn = (Button) findViewById(R.id.http_url_connection_test_btn);
         mHttpUrlConnectionTestBtn.setOnClickListener(l);
+
+        mSqliteTestBtn = (Button) findViewById(R.id.sqlite_test_btn);
+        mSqliteTestBtn.setOnClickListener(l);
     }
 
     class ButtonListener implements OnClickListener {
@@ -52,6 +56,9 @@ public class MainActivity extends Activity {
                 case R.id.http_url_connection_test_btn:
                     intent.setClass(MainActivity.this, HttpTestActivity.class);
                     intent.putExtra(Config.TEST_TYPE_KEY, Config.TYPE_HTTP_URL);
+                    break;
+                case R.id.sqlite_test_btn:
+                    intent.setClass(MainActivity.this, SqliteTestActivity.class);
                     break;
                 default:
                     testable = false;

@@ -8,5 +8,10 @@
     <string name="http">Http</string>
     <string name="https">Https</string>
     <string name="url">URL</string>
+    <string name="sqlite_test">SQLite Test</string>
+    <string name="sqlite_insert">Insert</string>
+    <string name="sqlite_query">Query</string>
+    <string name="sqlite_update">Update</string>
+    <string name="sqlite_delete">Delete</string>
     <string name="log_hint">Show statistic data here</string>
 </resources>
