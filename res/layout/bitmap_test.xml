@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dip"
+    >
+
+    <Spinner
+        android:id="@+id/bitmap_decode_methods_sp"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:prompt="@string/bitmap_decode_methods" />
+
+    <ImageView
+        android:id="@+id/bitmap_test_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="200dip"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/bitmap_test_image"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/log_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:text="@string/log_hint" />
+
+</LinearLayout>
+

@@ -24,9 +24,6 @@ import android.widget.TextView;
  * Sqlite test Activity
  */
 public class SqliteTestActivity extends Activity {
-    private static final String SEPERATOR_LINE = "---------";
-    private static final String BEGIN_TAG = "Begin: ";
-    private static final String END_TAG = "End: ";
     private static final String DB_NAME = "apmdemo.db";
     private static final String TABLE_NAME = "production";
     public Button mInsertBtn;
@@ -104,28 +101,28 @@ public class SqliteTestActivity extends Activity {
         cv.put("name", "book");
         cv.put("price", 5);
         mLogTextView.append("insert:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.insert(TABLE_NAME, null, cv);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         cv.clear();
         cv.put("name", "cup");
         cv.put("price", 6);
         mLogTextView.append("insertOrThrow:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.insertOrThrow(TABLE_NAME, null, cv);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         cv.clear();
         cv.put("name", "drink");
         cv.put("price", 8);
         mLogTextView.append("insertWithOnConflict:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.insertWithOnConflict(TABLE_NAME, null, cv, SQLiteDatabase.CONFLICT_IGNORE);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
     }
 
     /**
@@ -136,67 +133,67 @@ public class SqliteTestActivity extends Activity {
         execSqlWithLog("SELECT * FROM " + TABLE_NAME + " WHERE price > ?", new String[]{"6"});
 
         mLogTextView.append("rawQuery:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.rawQuery("SELECT COUNT(*) FROM " + TABLE_NAME, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("rawQuery with CancellationSignal:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE price >= ?", new String[]{"4"}, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("rawQueryWithFactory:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.rawQueryWithFactory(null, "SELECT COUNT(*) FROM " + TABLE_NAME + "WHERE name = ?",
                 new String[]{"book"}, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("rawQueryWithFactory with CancellationSignal:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.rawQueryWithFactory(null, "SELECT * FROM " + TABLE_NAME + " limit ?",
                 new String[]{"2"}, null, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("query with limit:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.query(TABLE_NAME, new String[]{"name"}, null, null, null, null, null, new String("3"));
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("query with distinct, limit and CancellationSignal:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.query(true, TABLE_NAME, new String[]{"name"}, null, null, null, null, null, null, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("query:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.query(TABLE_NAME, null, null, null, null, null, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("query with distinct and limit:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.query(false, TABLE_NAME, new String[]{"price"}, null, null, null, null, null, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("queryWithFactory:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.queryWithFactory(null, true, TABLE_NAME, null, null, null, null, null, null, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         mLogTextView.append("queryWithFactory with CancellationSignal:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.queryWithFactory(null, true, TABLE_NAME, new String[]{"price"}, null, null,
                 null, null, null, null, null);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
     }
 
     /**
@@ -208,19 +205,19 @@ public class SqliteTestActivity extends Activity {
         ContentValues cv = new ContentValues();
         cv.put("price", 2);
         mLogTextView.append("update:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.update(TABLE_NAME, cv, "name = ?", new String[]{"pen"});
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
 
         cv.clear();
         cv.put("price", 7);
         mLogTextView.append("updateWithOnConflict:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.updateWithOnConflict(TABLE_NAME, cv, "name = ?", new String[]{"cup"},
                 SQLiteDatabase.CONFLICT_IGNORE);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
     }
 
     /**
@@ -230,10 +227,10 @@ public class SqliteTestActivity extends Activity {
         execSqlWithLog("DELETE FROM " + TABLE_NAME + " WHERE price > 20");
 
         mLogTextView.append("delete:");
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.delete(TABLE_NAME, "name = ?", new String[]{"book"});
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
     }
 
     /**
@@ -245,10 +242,10 @@ public class SqliteTestActivity extends Activity {
         }
 
         mLogTextView.append("execSQL: " + sql);
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.execSQL(sql);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
     }
 
     /**
@@ -260,26 +257,10 @@ public class SqliteTestActivity extends Activity {
         }
 
         mLogTextView.append("execSQL with bindArgs: " + sql);
-        logCurrentTime(BEGIN_TAG);
+        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.execSQL(sql, bindArgs);
-        logCurrentTime(END_TAG);
-        logSeparatorLine();
-    }
-
-    /**
-    * Log current time
-    * @param tag The tag of performance type
-    */
-    public void logCurrentTime(String tag) {
-        long tm = System.currentTimeMillis();
-        mLogTextView.append("\r\n" + tag + Long.toString(tm));
-    }
-
-    /**
-    * Log separator line to make more readable
-    */
-    public void logSeparatorLine() {
-        mLogTextView.append("\r\n" + SEPERATOR_LINE + "\r\n");
+        Util.logCurrentTime(mLogTextView, Util.END_TAG);
+        Util.logSeparatorLine(mLogTextView);
     }
 
     class ButtonListener implements OnClickListener {
@@ -307,7 +288,7 @@ public class SqliteTestActivity extends Activity {
                 }
             } catch (Exception e) {
                 mLogTextView.append("\r\n" + e.toString());
-                logSeparatorLine();
+                Util.logSeparatorLine(mLogTextView);
             }
         }
     }

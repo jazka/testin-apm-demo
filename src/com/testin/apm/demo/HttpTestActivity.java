@@ -22,7 +22,6 @@ import android.widget.TextView;
  * Http test Activity
  */
 public class HttpTestActivity extends Activity {
-    private static final String SEPERATOR_LINE = "---------";
     public Button mPostBtn;
     public Button mGetBtn;
     public Spinner mSpinner;
@@ -44,7 +43,6 @@ public class HttpTestActivity extends Activity {
      */
     public void init() {
         mFstLogData = true;
-        mUrl = Config.getDefaultUrl();
 
         String testType = getIntent().getStringExtra(Config.TEST_TYPE_KEY);
         if (testType.compareTo(Config.TYPE_HTTP_URL) == 0) {
@@ -81,14 +79,7 @@ public class HttpTestActivity extends Activity {
             mLogTextView.append(logData);
         }
 
-        logSeparatorLine();
-    }
-
-    /**
-    * Log separator line to make more readable
-    */
-    public void logSeparatorLine() {
-        mLogTextView.append("\r\n" + SEPERATOR_LINE + "\r\n");
+        Util.logSeparatorLine(mLogTextView);
     }
 
     class ButtonListener implements OnClickListener {

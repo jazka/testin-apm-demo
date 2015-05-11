@@ -20,6 +20,7 @@ public class MainActivity extends Activity {
     public Button mHttpClientTestBtn;
     public Button mHttpUrlConnectionTestBtn;
     public Button mSqliteTestBtn;
+    public Button mBitmapBtn;
 
     /** Called when the activity is first created. */
     @Override
@@ -40,6 +41,9 @@ public class MainActivity extends Activity {
 
         mSqliteTestBtn = (Button) findViewById(R.id.sqlite_test_btn);
         mSqliteTestBtn.setOnClickListener(l);
+
+        mBitmapBtn = (Button) findViewById(R.id.bitmap_test_btn);
+        mBitmapBtn.setOnClickListener(l);
     }
 
     class ButtonListener implements OnClickListener {
@@ -59,6 +63,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.sqlite_test_btn:
                     intent.setClass(MainActivity.this, SqliteTestActivity.class);
+                    break;
+                case R.id.bitmap_test_btn:
+                    intent.setClass(MainActivity.this, BitmapTestActivity.class);
                     break;
                 default:
                     testable = false;

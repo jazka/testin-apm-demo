@@ -23,11 +23,33 @@ public class Config {
         add("http://crash.testin.cn/cpi/crash");
     } };
 
+    private static final List<String> DECODE_METHODS = new ArrayList<String>() { {
+        add("decodeStream ");
+        add("decodeStream with Options");
+        add("decodeFile");
+        add("decodeFile with Options");
+        add("decodeByteArray");
+        add("decodeByteArray with Options");
+        add("decodeFileDescriptor");
+        add("decodeFileDescriptor with Options");
+        add("decodeResource");
+        add("decodeResource with Options");
+        add("decodeResourceStream");
+    } };
+
     static List<String> getUrlList() {
         return URLLIST;
     }
 
     static String getDefaultUrl() {
         return URLLIST.get(0);
+    }
+
+    static List<String> getDecodeMethods() {
+        return DECODE_METHODS;
+    }
+
+    static String getDefaultDecodeMethod() {
+        return DECODE_METHODS.get(0);
     }
 }
