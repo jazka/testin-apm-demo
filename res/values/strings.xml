@@ -14,5 +14,8 @@
     <string name="bitmap_test">Bitmap Test</string>
     <string name="bitmap_decode_methods">Decode Methods</string>
     <string name="bitmap_test_image">Test Image</string>
+    <string name="gson_test">Gson/Json Test</string>
+    <string name="gson">Gson</string>
+    <string name="json">Android Json</string>
     <string name="log_hint">Show statistic data here</string>
 </resources>

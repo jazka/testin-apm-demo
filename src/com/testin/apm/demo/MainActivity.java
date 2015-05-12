@@ -20,7 +20,8 @@ public class MainActivity extends Activity {
     public Button mHttpClientTestBtn;
     public Button mHttpUrlConnectionTestBtn;
     public Button mSqliteTestBtn;
-    public Button mBitmapBtn;
+    public Button mBitmapTestBtn;
+    public Button mGsonTestBtn;
 
     /** Called when the activity is first created. */
     @Override
@@ -42,8 +43,11 @@ public class MainActivity extends Activity {
         mSqliteTestBtn = (Button) findViewById(R.id.sqlite_test_btn);
         mSqliteTestBtn.setOnClickListener(l);
 
-        mBitmapBtn = (Button) findViewById(R.id.bitmap_test_btn);
-        mBitmapBtn.setOnClickListener(l);
+        mBitmapTestBtn = (Button) findViewById(R.id.bitmap_test_btn);
+        mBitmapTestBtn.setOnClickListener(l);
+
+        mGsonTestBtn = (Button) findViewById(R.id.gson_test_btn);
+        mGsonTestBtn.setOnClickListener(l);
     }
 
     class ButtonListener implements OnClickListener {
@@ -66,6 +70,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.bitmap_test_btn:
                     intent.setClass(MainActivity.this, BitmapTestActivity.class);
+                    break;
+                case R.id.gson_test_btn:
+                    intent.setClass(MainActivity.this, GsonTestActivity.class);
                     break;
                 default:
                     testable = false;

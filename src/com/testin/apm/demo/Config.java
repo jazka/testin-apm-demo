@@ -24,7 +24,7 @@ public class Config {
     } };
 
     private static final List<String> DECODE_METHODS = new ArrayList<String>() { {
-        add("decodeStream ");
+        add("decodeStream");
         add("decodeStream with Options");
         add("decodeFile");
         add("decodeFile with Options");
