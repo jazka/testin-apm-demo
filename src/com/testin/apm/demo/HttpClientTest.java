@@ -39,7 +39,7 @@ public class HttpClientTest extends HttpTest {
         mPostRequest.setEntity(entity);
         mRequestDataSize = postBody.length();
         mStartTime = System.currentTimeMillis();
-        mResponse = mClient.execute(mGetRequest);
+        mResponse = mClient.execute(mPostRequest);
         mEndTime = System.currentTimeMillis();
         mStatusCode = mResponse.getStatusLine().getStatusCode();
 
