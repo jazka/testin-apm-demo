@@ -7,9 +7,11 @@
 package com.testin.apm.demo;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
@@ -41,13 +43,18 @@ public class BitmapTestActivity extends Activity {
     private static final String HTTP_IMAGE =
             "http://g.hiphotos.baidu.com/image/w%3D310/sign=f8ac12e5af6eddc426e7b2fa09dbb6a2/"
             + "42a98226cffc1e177cdab0314890f603738de94d.jpg";
+    private static final String ASYNC_HTTP_IMAGE = "http://developer.android.com/images/home/kk-hero.jpg";
+    private static final String PROGRESS_DIALOG_TITLE = "AsyncTask Test";
+    private static final String PROGRESS_DIALOG_MESSAGE = "Wait to get the picture from internet...";
     private static final int TIME_OUT = 6 * 1000;
     private static final int BUFFER_SIZE = 4096;
     private BitmapFactory.Options mOptions;
     public Spinner mSpinner;
     public ImageView mBitmapTestIv;
     public TextView mLogTextView;
+    private ProgressDialog mProgressDlg;
     public boolean mFstLogData;
+    public boolean mUserSelectedSpi;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +69,7 @@ public class BitmapTestActivity extends Activity {
      */
     public void init() {
         mFstLogData = true;
+        mUserSelectedSpi = false;
         mOptions = new BitmapFactory.Options();
         mOptions.inSampleSize = 8;
         mOptions.inPurgeable = true;
@@ -76,6 +84,14 @@ public class BitmapTestActivity extends Activity {
         mLogTextView.setMovementMethod(ScrollingMovementMethod.getInstance());
 
         mBitmapTestIv = (ImageView) findViewById(R.id.bitmap_test_iv);
+
+        mProgressDlg = new ProgressDialog(this);
+        mProgressDlg.setTitle(PROGRESS_DIALOG_TITLE);
+        mProgressDlg.setMessage(PROGRESS_DIALOG_MESSAGE);
+        mProgressDlg.setCancelable(false);
+        mProgressDlg.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
+        new AsyncTaskTest().execute(ASYNC_HTTP_IMAGE);
     }
 
     /**
@@ -225,9 +241,14 @@ public class BitmapTestActivity extends Activity {
         return method.contentEquals("Options");
     }
 
-    class SpinnerOnSelectedListener implements OnItemSelectedListener{
+    class SpinnerOnSelectedListener implements OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+            if (!mUserSelectedSpi) {
+                mUserSelectedSpi = true;
+                return;
+            }
+
             String method = adapterView.getItemAtPosition(position).toString();
             try {
                 switch(position) {
@@ -264,6 +285,46 @@ public class BitmapTestActivity extends Activity {
 
         @Override
         public void onNothingSelected(AdapterView<?> arg0) {
+        }
+    }
+
+    class AsyncTaskTest extends AsyncTask<String, Integer, InputStream> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDlg.show();
+        }
+
+        @Override
+        protected InputStream doInBackground(String... params) {
+            InputStream is = null;
+            try {
+                URL imageUrl = new URL(params[0]);
+                HttpURLConnection conn = (HttpURLConnection) imageUrl.openConnection();
+                conn.setConnectTimeout(TIME_OUT);
+                conn.setRequestMethod("GET");
+                conn.connect();
+                is = conn.getInputStream();
+            } catch (MalformedURLException e) {
+                // Nothing
+            } catch (IOException e) {
+                // Nothing
+            }
+            return is;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(InputStream result) {
+            super.onPostExecute(result);
+
+            Bitmap bm = BitmapFactory.decodeStream(result);
+            mBitmapTestIv.setImageBitmap(bm);
+            mProgressDlg.dismiss();
         }
     }
 }
