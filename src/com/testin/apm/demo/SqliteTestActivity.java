@@ -94,9 +94,6 @@ public class SqliteTestActivity extends Activity {
      * Test all kinds of insert methods
      */
     public void insert() throws SQLiteException {
-        execSqlWithLog("INSERT INTO " + TABLE_NAME + " (name, price) VALUES (?, ?)",
-                new Object[]{ "pen", 4 });
-
         ContentValues cv = new ContentValues();
         cv.put("name", "book");
         cv.put("price", 5);
@@ -130,8 +127,6 @@ public class SqliteTestActivity extends Activity {
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void query() throws SQLiteException {
-        execSqlWithLog("SELECT * FROM " + TABLE_NAME + " WHERE price > ?", new String[]{"6"});
-
         mLogTextView.append("rawQuery:");
         Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
         mSqliteDb.rawQuery("SELECT COUNT(*) FROM " + TABLE_NAME, null);
