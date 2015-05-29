@@ -133,25 +133,29 @@ public class SqliteTestActivity extends Activity {
         Util.logCurrentTime(mLogTextView, Util.END_TAG);
         Util.logSeparatorLine(mLogTextView);
 
-        mLogTextView.append("rawQuery with CancellationSignal:");
-        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
-        mSqliteDb.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE price >= ?", new String[]{"4"}, null);
-        Util.logCurrentTime(mLogTextView, Util.END_TAG);
-        Util.logSeparatorLine(mLogTextView);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            mLogTextView.append("rawQuery with CancellationSignal:");
+            Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
+            mSqliteDb.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE price >= ?", new String[]{"4"}, null);
+            Util.logCurrentTime(mLogTextView, Util.END_TAG);
+            Util.logSeparatorLine(mLogTextView);
+        }
 
         mLogTextView.append("rawQueryWithFactory:");
         Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
-        mSqliteDb.rawQueryWithFactory(null, "SELECT COUNT(*) FROM " + TABLE_NAME + "WHERE name = ?",
+        mSqliteDb.rawQueryWithFactory(null, "SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE name = ?",
                 new String[]{"book"}, null);
         Util.logCurrentTime(mLogTextView, Util.END_TAG);
         Util.logSeparatorLine(mLogTextView);
 
-        mLogTextView.append("rawQueryWithFactory with CancellationSignal:");
-        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
-        mSqliteDb.rawQueryWithFactory(null, "SELECT * FROM " + TABLE_NAME + " limit ?",
-                new String[]{"2"}, null, null);
-        Util.logCurrentTime(mLogTextView, Util.END_TAG);
-        Util.logSeparatorLine(mLogTextView);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            mLogTextView.append("rawQueryWithFactory with CancellationSignal:");
+            Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
+            mSqliteDb.rawQueryWithFactory(null, "SELECT * FROM " + TABLE_NAME + " limit ?",
+                    new String[]{"2"}, null, null);
+            Util.logCurrentTime(mLogTextView, Util.END_TAG);
+            Util.logSeparatorLine(mLogTextView);
+        }
 
         mLogTextView.append("query with limit:");
         Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
@@ -159,11 +163,13 @@ public class SqliteTestActivity extends Activity {
         Util.logCurrentTime(mLogTextView, Util.END_TAG);
         Util.logSeparatorLine(mLogTextView);
 
-        mLogTextView.append("query with distinct, limit and CancellationSignal:");
-        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
-        mSqliteDb.query(true, TABLE_NAME, new String[]{"name"}, null, null, null, null, null, null, null);
-        Util.logCurrentTime(mLogTextView, Util.END_TAG);
-        Util.logSeparatorLine(mLogTextView);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            mLogTextView.append("query with distinct, limit and CancellationSignal:");
+            Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
+            mSqliteDb.query(true, TABLE_NAME, new String[]{"name"}, null, null, null, null, null, null, null);
+            Util.logCurrentTime(mLogTextView, Util.END_TAG);
+            Util.logSeparatorLine(mLogTextView);
+        }
 
         mLogTextView.append("query:");
         Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
@@ -183,12 +189,14 @@ public class SqliteTestActivity extends Activity {
         Util.logCurrentTime(mLogTextView, Util.END_TAG);
         Util.logSeparatorLine(mLogTextView);
 
-        mLogTextView.append("queryWithFactory with CancellationSignal:");
-        Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
-        mSqliteDb.queryWithFactory(null, true, TABLE_NAME, new String[]{"price"}, null, null,
-                null, null, null, null, null);
-        Util.logCurrentTime(mLogTextView, Util.END_TAG);
-        Util.logSeparatorLine(mLogTextView);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            mLogTextView.append("queryWithFactory with CancellationSignal:");
+            Util.logCurrentTime(mLogTextView, Util.BEGIN_TAG);
+            mSqliteDb.queryWithFactory(null, true, TABLE_NAME, new String[]{"price"}, null, null,
+                    null, null, null, null, null);
+            Util.logCurrentTime(mLogTextView, Util.END_TAG);
+            Util.logSeparatorLine(mLogTextView);
+        }
     }
 
     /**
