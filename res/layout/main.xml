@@ -39,5 +39,19 @@
         android:layout_height="wrap_content"
         android:text="@string/gson_test"
         android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/fragment_test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_test"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/webview_test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/webview_test"
+        android:textSize="15sp" />
 </LinearLayout>
 

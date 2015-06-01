@@ -18,4 +18,9 @@
     <string name="gson">Gson</string>
     <string name="json">Android Json</string>
     <string name="log_hint">Show statistic data here</string>
+    <string name="fragment_test">Fragement Test with Thread</string>
+    <string name="fragment1">This is fragment1</string>
+    <string name="fragment2">This is fragment2</string>
+    <string name="thread_test_image">Test thread by loading image</string>
+    <string name="webview_test">Webview Test</string>
 </resources>

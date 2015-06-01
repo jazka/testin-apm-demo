@@ -43,7 +43,8 @@ public class BitmapTestActivity extends Activity {
     private static final String HTTP_IMAGE =
             "http://g.hiphotos.baidu.com/image/w%3D310/sign=f8ac12e5af6eddc426e7b2fa09dbb6a2/"
             + "42a98226cffc1e177cdab0314890f603738de94d.jpg";
-    private static final String ASYNC_HTTP_IMAGE = "http://developer.android.com/images/home/kk-hero.jpg";
+    private static final String ASYNC_HTTP_IMAGE =
+            "http://pic.baomihua.com/photos/201110/m_6_634545725224218750_16585344.jpg";
     private static final String PROGRESS_DIALOG_TITLE = "AsyncTask Test";
     private static final String PROGRESS_DIALOG_MESSAGE = "Wait to get the picture from internet...";
     private static final int TIME_OUT = 6 * 1000;

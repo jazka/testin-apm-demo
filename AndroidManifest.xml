@@ -38,6 +38,14 @@
         <activity 
             android:name=".GsonTestActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <activity 
+            android:name=".FragmentTestActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <activity 
+            android:name=".WebviewTestActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
     </application>
 
 </manifest>
