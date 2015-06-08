@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
     public Button mGsonTestBtn;
     public Button mFragmentTestBtn;
     public Button mWebviewTestBtn;
+    public Button mTabWebviewTestBtn;
 
     /** Called when the activity is first created. */
     @Override
@@ -56,6 +57,10 @@ public class MainActivity extends Activity {
 
         mWebviewTestBtn = (Button) findViewById(R.id.webview_test_btn);
         mWebviewTestBtn.setOnClickListener(l);
+
+        mTabWebviewTestBtn = (Button) findViewById(R.id.tab_webview_test_btn);
+        mTabWebviewTestBtn.setOnClickListener(l);
+
     }
 
     class ButtonListener implements OnClickListener {
@@ -87,6 +92,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.webview_test_btn:
                     intent.setClass(MainActivity.this, WebviewTestActivity.class);
+                    break;
+                case R.id.tab_webview_test_btn:
+                    intent.setClass(MainActivity.this, TabWebViewActivity.class);
                     break;
                 default:
                     testable = false;
