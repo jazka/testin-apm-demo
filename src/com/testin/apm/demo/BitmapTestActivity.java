@@ -323,9 +323,13 @@ public class BitmapTestActivity extends Activity {
         protected void onPostExecute(InputStream result) {
             super.onPostExecute(result);
 
-            Bitmap bm = BitmapFactory.decodeStream(result);
-            mBitmapTestIv.setImageBitmap(bm);
-            mProgressDlg.dismiss();
+            try {
+                Bitmap bm = BitmapFactory.decodeStream(result);
+                mBitmapTestIv.setImageBitmap(bm);
+                mProgressDlg.dismiss();
+            } catch (Exception e) {
+                // Nothing
+            }
         }
     }
 }
