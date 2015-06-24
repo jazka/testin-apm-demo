@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dip"
+    >
+
+    <EditText
+        android:id="@+id/edit_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_url_hint"
+        android:selectAllOnFocus="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp" >
+        <EditText
+            android:id="@+id/edit_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_method_hint"
+            android:selectAllOnFocus="true" />
+
+        <EditText
+            android:id="@+id/edit_content_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:hint="@string/edit_content_type_hint"
+            android:selectAllOnFocus="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp" >
+        <EditText
+            android:id="@+id/edit_bytes_recv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_bytes_recv_hint"
+            android:selectAllOnFocus="true" />
+
+        <EditText
+            android:id="@+id/edit_bytes_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:hint="@string/edit_bytes_send_hint"
+            android:selectAllOnFocus="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp" >
+        <EditText
+            android:id="@+id/edit_latency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_latency_hint"
+            android:selectAllOnFocus="true" />
+
+        <EditText
+            android:id="@+id/edit_status_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:hint="@string/edit_status_code_hint"
+            android:selectAllOnFocus="true" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/report_url_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/report_url" />
+
+    <TextView
+        android:id="@+id/log_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:text="@string/log_hint" />
+
+</LinearLayout>
+

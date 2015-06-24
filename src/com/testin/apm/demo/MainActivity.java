@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+// import com.testin.agent.TestinAgent;
+
 /**
  * This application is use to test Testin Apm
  */
@@ -25,6 +27,7 @@ public class MainActivity extends Activity {
     public Button mFragmentTestBtn;
     public Button mWebviewTestBtn;
     public Button mTabWebviewTestBtn;
+    public Button mUrlReportTestBtn;
 
     /** Called when the activity is first created. */
     @Override
@@ -61,6 +64,11 @@ public class MainActivity extends Activity {
         mTabWebviewTestBtn = (Button) findViewById(R.id.tab_webview_test_btn);
         mTabWebviewTestBtn.setOnClickListener(l);
 
+        mUrlReportTestBtn = (Button) findViewById(R.id.url_report_test_btn);
+        mUrlReportTestBtn.setOnClickListener(l);
+
+        // Add TestinAgent initialization here
+        // TestinAgent.init(this, "19f0d1d1b0a7637d34987c7debd98a91");
     }
 
     class ButtonListener implements OnClickListener {
@@ -95,6 +103,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.tab_webview_test_btn:
                     intent.setClass(MainActivity.this, TabWebViewActivity.class);
+                    break;
+                case R.id.url_report_test_btn:
+                    intent.setClass(MainActivity.this, UrlReportActivity.class);
                     break;
                 default:
                     testable = false;

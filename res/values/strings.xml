@@ -24,4 +24,13 @@
     <string name="thread_test_image">Test thread by loading image</string>
     <string name="webview_test">Webview Test</string>
     <string name="tab_webview_test">Tab Webview Test</string>
+    <string name="url_report_test">Rport URL Data Test</string>
+    <string name="edit_url_hint">Input URL</string>
+    <string name="edit_method_hint">Input method</string>
+    <string name="edit_content_type_hint">Input contentType</string>
+    <string name="edit_latency_hint">Input latency</string>
+    <string name="edit_bytes_recv_hint">Input bytesRecv</string>
+    <string name="edit_bytes_send_hint">Input bytesSend</string>
+    <string name="edit_status_code_hint">Input statusCode</string>
+    <string name="report_url">Report</string>
 </resources>

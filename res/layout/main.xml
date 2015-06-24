@@ -53,11 +53,19 @@
         android:layout_height="wrap_content"
         android:text="@string/webview_test"
         android:textSize="15sp" />
+
     <Button
         android:id="@+id/tab_webview_test_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tab_webview_test"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/url_report_test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/url_report_test"
         android:textSize="15sp" />
 </LinearLayout>
 
