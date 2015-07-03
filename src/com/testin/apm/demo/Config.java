@@ -21,6 +21,7 @@ public class Config {
         add("http://www.baidu.com/");
         add("https://download.oneapm.com/android_agent/eclipse/");
         add("http://crash.testin.cn/cpi/crash");
+        add("http://121.40.57.182:8080/apiserver/new/test/error");
     } };
 
     private static final List<String> DECODE_METHODS = new ArrayList<String>() { {
