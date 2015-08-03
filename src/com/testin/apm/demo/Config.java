@@ -16,6 +16,7 @@ public class Config {
     static final String TEST_TYPE_KEY = "test_type_key";
     static final String TYPE_HTTP_CLIENT = "test_http_client";
     static final String TYPE_HTTP_URL = "test_http_url_connection";
+    static final String TYPE_OK_HTTP = "test_ok_http";
 
     private static final List<String> URLLIST = new ArrayList<String>() { {
         add("http://www.baidu.com/");

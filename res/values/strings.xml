@@ -3,6 +3,7 @@
     <string name="app_name">Testin APM Test</string>
     <string name="http_client_test">HttpClient Test</string>
     <string name="http_url_connection_test">HttpURLConnection Test</string>
+    <string name="ok_http_test">OkHttp Test</string>
     <string name="http_post">Http Post</string>
     <string name="http_get">Http Get</string>
     <string name="url">URL</string>

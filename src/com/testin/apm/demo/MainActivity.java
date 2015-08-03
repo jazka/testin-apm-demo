@@ -21,6 +21,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
     public Button mHttpClientTestBtn;
     public Button mHttpUrlConnectionTestBtn;
+    public Button mOkHttpTestBtn;
     public Button mSqliteTestBtn;
     public Button mBitmapTestBtn;
     public Button mGsonTestBtn;
@@ -45,6 +46,9 @@ public class MainActivity extends Activity {
 
         mHttpUrlConnectionTestBtn = (Button) findViewById(R.id.http_url_connection_test_btn);
         mHttpUrlConnectionTestBtn.setOnClickListener(l);
+
+        mOkHttpTestBtn = (Button) findViewById(R.id.ok_http_test_btn);
+        mOkHttpTestBtn.setOnClickListener(l);
 
         mSqliteTestBtn = (Button) findViewById(R.id.sqlite_test_btn);
         mSqliteTestBtn.setOnClickListener(l);
@@ -85,6 +89,10 @@ public class MainActivity extends Activity {
                 case R.id.http_url_connection_test_btn:
                     intent.setClass(MainActivity.this, HttpTestActivity.class);
                     intent.putExtra(Config.TEST_TYPE_KEY, Config.TYPE_HTTP_URL);
+                    break;
+                case R.id.ok_http_test_btn:
+                    intent.setClass(MainActivity.this, HttpTestActivity.class);
+                    intent.putExtra(Config.TEST_TYPE_KEY, Config.TYPE_OK_HTTP);
                     break;
                 case R.id.sqlite_test_btn:
                     intent.setClass(MainActivity.this, SqliteTestActivity.class);
