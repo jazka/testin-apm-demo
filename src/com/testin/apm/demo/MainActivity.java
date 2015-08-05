@@ -14,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 // import com.testin.agent.TestinAgent;
+// import com.testin.agent.TestinAgentConfig;
 
 /**
  * This application is use to test Testin Apm
@@ -72,7 +73,21 @@ public class MainActivity extends Activity {
         mUrlReportTestBtn.setOnClickListener(l);
 
         // Add TestinAgent initialization here
-        // TestinAgent.init(this, "19f0d1d1b0a7637d34987c7debd98a91");
+        // String key = "19f0d1d1b0a7637d34987c7debd98a91";
+        // TestinAgent.init(this, key);
+
+        // TestinAgentConfig config = new TestinAgentConfig.Builder(this)
+        //         .withAppKey(key)            // Appkey of your appliation, required
+        //         .withDebugModel(true)       // Output the crash log in local if you open debug mode
+        //         .withErrorActivity(true)    // Output the activity info in crash or error log
+        //         .withCollectNDKCrash(true)  // Collect NDK crash or not if you use our NDK
+        //         .withOpenAPM(true)          // Monitor APM if true
+        //         .withOpenCrash(true)        // Monitor crash if true
+        //         .withReportOnlyWifi(true)   // Report data only on wifi mode
+        //         .withReportOnBack(true)     // Allow to report data when application in background
+        //         .withNetworkMonitor(true)   // Monitor network if true, default false
+        //         .build();
+        // TestinAgent.init(config);
     }
 
     class ButtonListener implements OnClickListener {
