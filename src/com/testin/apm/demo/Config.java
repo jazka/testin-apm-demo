@@ -22,7 +22,7 @@ public class Config {
         add("http://www.baidu.com/");
         add("https://download.oneapm.com/android_agent/eclipse/");
         add("http://crash.testin.cn/cpi/crash");
-        add("http://192.168.5.68:8080/apiserver/new/test/error");
+        add("http://q-lijing.testin.cn");
     } };
 
     private static final List<String> DECODE_METHODS = new ArrayList<String>() { {
