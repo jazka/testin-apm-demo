@@ -51,6 +51,8 @@ public class HttpTestActivity extends Activity {
             mHttpTest = new HttpClientTest();
         } else if (testType.compareTo(Config.TYPE_OK_HTTP) == 0) {
             mHttpTest = new OkHttpTest();
+        } else if (testType.compareTo(Config.TYPE_VOLLEY) == 0) {
+            mHttpTest = new VolleyTest(this);
         }
 
         OnClickListener l = new ButtonListener();

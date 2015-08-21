@@ -26,6 +26,7 @@
     <string name="webview_test">Webview Test</string>
     <string name="tab_webview_test">Tab Webview Test</string>
     <string name="url_report_test">Rport URL Data Test</string>
+    <string name="volley_test">Volley Test</string>
     <string name="edit_url_hint">Input URL</string>
     <string name="edit_method_hint">Input method</string>
     <string name="edit_content_type_hint">Input contentType</string>

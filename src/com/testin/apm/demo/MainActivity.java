@@ -30,6 +30,7 @@ public class MainActivity extends Activity {
     public Button mWebviewTestBtn;
     public Button mTabWebviewTestBtn;
     public Button mUrlReportTestBtn;
+    public Button mVolleyTestBtn;
 
     /** Called when the activity is first created. */
     @Override
@@ -72,6 +73,9 @@ public class MainActivity extends Activity {
         mUrlReportTestBtn = (Button) findViewById(R.id.url_report_test_btn);
         mUrlReportTestBtn.setOnClickListener(l);
 
+        mVolleyTestBtn = (Button) findViewById(R.id.volley_test_btn);
+        mVolleyTestBtn.setOnClickListener(l);
+
         // Add TestinAgent initialization here
         // String key = "19f0d1d1b0a7637d34987c7debd98a91";
         // TestinAgent.init(this, key);
@@ -108,6 +112,10 @@ public class MainActivity extends Activity {
                 case R.id.ok_http_test_btn:
                     intent.setClass(MainActivity.this, HttpTestActivity.class);
                     intent.putExtra(Config.TEST_TYPE_KEY, Config.TYPE_OK_HTTP);
+                    break;
+                case R.id.volley_test_btn:
+                    intent.setClass(MainActivity.this, HttpTestActivity.class);
+                    intent.putExtra(Config.TEST_TYPE_KEY, Config.TYPE_VOLLEY);
                     break;
                 case R.id.sqlite_test_btn:
                     intent.setClass(MainActivity.this, SqliteTestActivity.class);

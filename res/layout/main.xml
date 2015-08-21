@@ -74,5 +74,13 @@
         android:layout_height="wrap_content"
         android:text="@string/url_report_test"
         android:textSize="15sp" />
+
+
+    <Button
+        android:id="@+id/volley_test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/volley_test"
+        android:textSize="15sp" />
 </LinearLayout>
 
