@@ -56,6 +56,10 @@
         <activity 
             android:name=".UrlReportActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+
+        <activity 
+            android:name=".UpdateCheckingActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
     </application>
 
 </manifest>

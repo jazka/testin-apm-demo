@@ -35,4 +35,7 @@
     <string name="edit_bytes_send_hint">Input bytesSend</string>
     <string name="edit_status_code_hint">Input statusCode</string>
     <string name="report_url">Report</string>
+    <string name="update_checking">App Update Checking</string>
+    <string name="default_checking">Default Checking</string>
+    <string name="customer_checking">Customer Checking</string>
 </resources>

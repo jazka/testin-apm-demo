@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
     public Button mTabWebviewTestBtn;
     public Button mUrlReportTestBtn;
     public Button mVolleyTestBtn;
+    public Button mUpdateCheckingBtn;
 
     /** Called when the activity is first created. */
     @Override
@@ -76,8 +77,11 @@ public class MainActivity extends Activity {
         mVolleyTestBtn = (Button) findViewById(R.id.volley_test_btn);
         mVolleyTestBtn.setOnClickListener(l);
 
+        mUpdateCheckingBtn = (Button) findViewById(R.id.update_checking_btn);
+        mUpdateCheckingBtn.setOnClickListener(l);
+
         // Add TestinAgent initialization here
-        // String key = "19f0d1d1b0a7637d34987c7debd98a91";
+        // String key = "4f7185d7c36b36e1543e5b5b96f62b69";
         // TestinAgent.init(this, key);
 
         // TestinAgentConfig config = new TestinAgentConfig.Builder(this)
@@ -137,6 +141,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.url_report_test_btn:
                     intent.setClass(MainActivity.this, UrlReportActivity.class);
+                    break;
+                case R.id.update_checking_btn:
+                    intent.setClass(MainActivity.this, UpdateCheckingActivity.class);
                     break;
                 default:
                     testable = false;
