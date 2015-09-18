@@ -17,8 +17,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.testin.agent.TestinAgent;
-import com.testin.agent.TestinCheckUpdateHandler;
+// import com.testin.agent.TestinAgent;
+// import com.testin.agent.TestinCheckUpdateHandler;
 /**
  * Http test Activity
  */
@@ -52,35 +52,35 @@ public class UpdateCheckingActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.default_checking_btn:
-                    TestinAgent.checkUpdate(UpdateCheckingActivity.this);
+                    // TestinAgent.checkUpdate(UpdateCheckingActivity.this);
                     break;
                 case R.id.customer_checking_btn:
-                    TestinAgent.checkUpdate(UpdateCheckingActivity.this, new TestinCheckUpdateHandler() {
-                        @Override
-                        public void onUpdate(final String notes, final String url) {
-                            if (TextUtils.isEmpty(url)) {
-                                return;
-                            }
+                    // TestinAgent.checkUpdate(UpdateCheckingActivity.this, new TestinCheckUpdateHandler() {
+                    //     @Override
+                    //     public void onUpdate(final String notes, final String url) {
+                    //         if (TextUtils.isEmpty(url)) {
+                    //             return;
+                    //         }
 
-                            new AlertDialog.Builder(UpdateCheckingActivity.this)
-                                .setTitle("Customer更新")
-                                .setMessage(notes)
-                                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            try {
-                                                Uri uri = Uri.parse(url);
-                                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                                startActivity(intent);
-                                            } catch (Exception e) {
-                                                //
-                                            }
-                                        }
-                                    })
-                                .setNegativeButton("取消", null)
-                                .show();
-                        }
-                    });
+                    //         new AlertDialog.Builder(UpdateCheckingActivity.this)
+                    //             .setTitle("Customer更新")
+                    //             .setMessage(notes)
+                    //             .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    //                     @Override
+                    //                     public void onClick(DialogInterface dialog, int id) {
+                    //                         try {
+                    //                             Uri uri = Uri.parse(url);
+                    //                             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    //                             startActivity(intent);
+                    //                         } catch (Exception e) {
+                    //                             //
+                    //                         }
+                    //                     }
+                    //                 })
+                    //             .setNegativeButton("取消", null)
+                    //             .show();
+                    //     }
+                    // });
                     break;
                 default:
                     break;
