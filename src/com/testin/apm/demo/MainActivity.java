@@ -94,6 +94,7 @@ public class MainActivity extends Activity {
         //         .withReportOnlyWifi(true)   // Report data only on wifi mode
         //         .withReportOnBack(true)     // Allow to report data when application in background
         //         .withNetworkMonitor(true)   // Monitor network if true, default false
+        //         .withQAMaster(true)
         //         .build();
         // TestinAgent.init(config);
     }
