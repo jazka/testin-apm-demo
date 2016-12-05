@@ -1,23 +1,43 @@
-.idea
-.tags*
-*.opensdf
-*.props
-*.pdb
-*.pyc
-*.sdf
-*.sln
-*.suo
-*.swp
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
-*.xcodeproj
-*.DS_Store
-*~
-*.orig
-*.cproject
-.classpath
-.project
+lt application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
 bin/
 gen/
+out/
+build/
+
+# Local configuration file (sdk path, etc)
 local.properties
+
+# Eclipse project files
+.classpath
+.project
+
+# Windows thumbnail db
+.DS_Store
+
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle
+.idea
+*.iml
+
+# Old-style IDEA project files
+*.ipr
+*.iws
+
+# Local IDEA workspace
+.idea/workspace.xml
+
+# Gradle cache
+.gradle
+
+# Sandbox stuff
+_sandboxlocal.properties
