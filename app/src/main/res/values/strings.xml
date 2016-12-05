@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BugoutDemo</string>
+    <string name="scan_txt">请在Bugout网站上登录Demo账号，点击下方扫码按钮，扫描页面上显示的二维码开启体验之旅</string>
+    <string name="scan_btn">立即扫码</string>
+
+    <string-array name = "item_type_array" >
+        <item>1#  功能缺陷</item>
+        <item>2#  反馈意见</item>
+        <item>3#  崩溃异常</item>
+        <item>4#  任务</item>
+    </string-array>
+
+    <string-array name = "item_array" >
+        <item> <![CDATA[摇一摇手机<font color="#1081DE">或点击此问题</font>，在弹框中选择我要提点意见，来体验快速反馈问题功能]]> </item>
+        <item> <![CDATA[摇一摇手机<font color="#1081DE">或点击此问题</font>，在弹框中选择我要反馈Bug，来体验摇一摇快速上报Bug功能]]> </item>
+        <item><Data><![CDATA[这是一个崩溃，请<font color="#1081DE">点此条问题进行演示</font>]]></Data></item>
+        <item> 您可以通过电脑访问bugout.testin.cn，来查看上面3种问题的上报结果 </item>
+    </string-array>
+
+</resources>
