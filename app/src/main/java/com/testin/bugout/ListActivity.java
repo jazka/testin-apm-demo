@@ -49,12 +49,16 @@ public class ListActivity extends Activity {
                 if (position < 2) {
                     invokePrivateMothod();
                 } else if (position == 2) {
-                    Integer.valueOf("test bugout");
+                    testNumberFormatException();
                 }
             }
         });
 
 
+    }
+
+    private void testNumberFormatException(){
+        Integer.valueOf("test bugout");
     }
 
     private void initBugout() {
