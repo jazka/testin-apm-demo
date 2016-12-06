@@ -30,6 +30,8 @@ public class ListActivity extends Activity {
 
     private int PERMISSION_REQUEST_CODE = 1;
 
+    private String APPKEY = "0a666da5fad59068005aff122cee68ab";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +59,7 @@ public class ListActivity extends Activity {
 
     private void initBugout() {
         BugoutConfig config = new BugoutConfig.Builder(this)
-                .withAppKey("0a666da5fad59068005aff122cee68ab")     // 您的应用的项目 Key,如果已经在 Manifest 中配置则此处可略
+                .withAppKey(APPKEY)     // 您的应用的项目 Key,如果已经在 Manifest 中配置则此处可略
                 .withAppChannel("test")     // 发布应用的渠道,如果已经在 Manifest 中配置则此处可略
 //                    .withUserInfo(userinfo)    // 用户信息-崩溃分析根据用户记录崩溃信息
                 .withDebugModel(true)    // 输出更多SDK的debug信息
