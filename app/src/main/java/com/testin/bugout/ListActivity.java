@@ -64,8 +64,8 @@ public class ListActivity extends Activity {
     private void initBugout() {
         BugoutConfig config = new BugoutConfig.Builder(this)
                 .withAppKey(APPKEY)     // 您的应用的项目 Key,如果已经在 Manifest 中配置则此处可略
-                .withAppChannel("test")     // 发布应用的渠道,如果已经在 Manifest 中配置则此处可略
-//                    .withUserInfo(userinfo)    // 用户信息-崩溃分析根据用户记录崩溃信息
+                .withAppChannel("testChannel")     // 发布应用的渠道,如果已经在 Manifest 中配置则此处可略
+//                .withUserInfo("testUserInfo")    // 用户信息-崩溃分析根据用户记录崩溃信息
                 .withDebugModel(true)    // 输出更多SDK的debug信息
                 .withErrorActivity(true)    // 发生崩溃时采集Activity信息
                 .withCollectNDKCrash(true) //  收集NDK崩溃信息
@@ -78,6 +78,7 @@ public class ListActivity extends Activity {
                 .withLogCat(true)  // 是否系统操作信息
                 .build();
         Bugout.init(config);
+        Bugout.addExtraInfo("testKey", "testValue");
     }
 
     @Override
