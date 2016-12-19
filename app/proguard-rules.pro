@@ -15,3 +15,9 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-dontwarn com.qamaster.android.**
+-keep class com.qamaster.android.** {*;}
+
+-dontwarn com.testin.agent.**
+
+-keepattributes InnerClasses
