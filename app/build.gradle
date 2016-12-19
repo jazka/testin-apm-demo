@@ -28,8 +28,6 @@ android {
             signingConfig signingConfigs.myConfig
         }
     }
-
-
 }
 repositories {
     jcenter() // If not already there
